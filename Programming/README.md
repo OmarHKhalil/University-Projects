@@ -1,8 +1,6 @@
 
 # 🧮 Multiplication Game
 
-[English](#english) | [العربية](#arabic)
-
 ---
 
 <a id="english"></a>
