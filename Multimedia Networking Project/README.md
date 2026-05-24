@@ -39,7 +39,11 @@ A comprehensive Windows Forms application built in C# that combines advanced **I
 ## 💻 Installation & Setup
 1. **Clone the repository:**
 ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+# Clone the entire repository
+git clone https://github.com/OmarHKhalil/University-Projects.git
+
+# Navigate into the Multimedia Networking Project directory
+cd "Mobile Application Projects/Multimedia Networking Project"
 ```
 
 2. **Open the Project:**
