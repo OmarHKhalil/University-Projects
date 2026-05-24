@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Fitness Tracker System (Dart CLI Application)
 
 An advanced Dart Console Application developed as a comprehensive assignment for the **Mobile Programming** course at the **Arab International University (AIU)** - Faculty of Informatics Engineering.
