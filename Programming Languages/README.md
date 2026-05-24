@@ -1,6 +1,4 @@
 
-
-```markdown
 # 🏥 Hospital Management System
 
 An integrated, interactive Python console application designed to manage doctor and patient records efficiently, using a local **SQLite** database for secure data persistence. It also includes graphical login features and smart reporting capabilities.
