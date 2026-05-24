@@ -1,0 +1,7 @@
+[Dd]ebug/
+[Release]/
+bin/
+obj/
+.vs/
+*.user
+*.suo
