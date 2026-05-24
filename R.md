@@ -41,8 +41,10 @@ A comprehensive Windows Forms application built in C# that combines advanced **I
 1. **Clone the repository:**
 ```
 bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git]
 ```
+(https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+
 2. **Open the Project:**
 Open the `.sln` file using **Visual Studio 2022** or later.
 3. **Restore NuGet Packages:**
