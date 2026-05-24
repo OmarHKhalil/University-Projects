@@ -37,11 +37,9 @@ A comprehensive Windows Forms application built in C# that combines advanced **I
 ---
 
 ## 💻 Installation & Setup
-
 1. **Clone the repository:**
-```
-bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git]
+```bash
+   git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
 ```
 (https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
 
