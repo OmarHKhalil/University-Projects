@@ -80,7 +80,7 @@ git clone https://github.com/OmarHKhalil/University-Projects.git
 2. Navigate into the project folder:
 
 ```bash
-  cd "Mobile Application Projects/Smart Fitness Tracker System"
+  cd Mobile Application Projects/Smart Fitness Tracker System
 
 ```
 
@@ -91,6 +91,3 @@ git clone https://github.com/OmarHKhalil/University-Projects.git
 
 ```
 
-
-
-```
