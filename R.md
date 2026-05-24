@@ -1,7 +1,4 @@
 
-
-```
-markdown
 # Multipurpose Media Processor (MMN Project)
 
 A comprehensive Windows Forms application built in C# that combines advanced **Image Processing** tools with a fully functional **Audio Player**. This project was developed as part of the MMN university course, demonstrating low-level bitmap manipulation, structural UI patterns, and external library integration.
@@ -44,8 +41,6 @@ A comprehensive Windows Forms application built in C# that combines advanced **I
 1. **Clone the repository:**
 ```bash
    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
-
-```
 
 2. **Open the Project:**
 Open the `.sln` file using **Visual Studio 2022** or later.
