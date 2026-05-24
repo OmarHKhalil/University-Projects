@@ -87,5 +87,3 @@ cd Mobile Application Projects/venezia-gym-flutter
 ```
 
 ```
-
-```
