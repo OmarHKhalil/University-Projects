@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Fitness Tracker System (Dart CLI Application)
 
 An advanced Dart Console Application developed as a comprehensive assignment for the **Mobile Programming** course at the **Arab International University (AIU)** - Faculty of Informatics Engineering.
@@ -74,14 +74,13 @@ Make sure you have the [Dart SDK](https://dart.dev/get-dart) installed on your m
 1. Clone this repository:
 
 ```bash
-   git clone [https://github.com/YOUR_USERNAME/fitness-tracker-dart.git](https://github.com/YOUR_USERNAME/fitness-tracker-dart.git)
-
+git clone https://github.com/OmarHKhalil/University-Projects.git
 ```
 
 2. Navigate into the project folder:
 
 ```bash
-   cd fitness-tracker-dart
+  cd Mobile Application Projects/Smart Fitness Tracker System
 
 ```
 
@@ -92,6 +91,3 @@ Make sure you have the [Dart SDK](https://dart.dev/get-dart) installed on your m
 
 ```
 
-
-
-```
