@@ -1,0 +1,236 @@
+@model mike2.ViewModels.CreateBookingViewModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Create Booking</h2>
+    <p class="text-muted">
+        Select a service and an available time slot to create a booking.
+        Services are labeled with their category and provider; time slots show date and time.
+    </p>
+
+    <form method="get" asp-action="CreateForCustomer" class="row g-3 mb-3">
+        <div class="col-md-2">
+            <label class="form-label">Filter by Category</label>
+            <select name="category" class="form-select">
+                <option value="">-- All Categories --</option>
+                @foreach (var cat in Model.Categories)
+                {
+                    <option value="@cat.Value" selected="@(cat.Selected)">
+                        @cat.Text
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Filter by Region</label>
+            <select name="region" class="form-select">
+                <option value="">-- All Regions --</option>
+                @foreach (var reg in Model.Regions)
+                {
+                    <option value="@reg.Value" selected="@(reg.Selected)">
+                        @reg.Text
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Sort by Price</label>
+            <select name="priceSort" class="form-select">
+                <option value="">-- Default --</option>
+                <option value="1" selected="@(Model.PriceSort == 1)">Cheapest First</option>
+                <option value="2" selected="@(Model.PriceSort == 2)">Most Expensive First</option>
+            </select>
+        </div>
+        <div class="col-md-2 align-self-end">
+            <button type="submit" class="btn btn-outline-secondary">Apply Filters</button>
+        </div>
+    </form>
+
+    @if (Model.ProvidersWithServices.Any())
+    {
+        <div class="row g-4">
+            @foreach (var providerWithServices in Model.ProvidersWithServices)
+            {
+                <div class="col-12">
+                    <!-- Provider Card -->
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">@providerWithServices.Provider.ApplicationUser?.FullName</h5>
+                                <div class="d-flex align-items-center">
+                                    @if (providerWithServices.TotalReviewCount > 0)
+                                    {
+                                        <div class="me-3">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= Math.Round(providerWithServices.AverageRating))
+                                                {
+                                                    <span class="text-warning">★</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">☆</span>
+                                                }
+                                            }
+                                            <span class="ms-1 fw-bold">@providerWithServices.AverageRating.ToString("F1")</span>
+                                            <small>(@providerWithServices.TotalReviewCount)</small>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <!-- Provider Info -->
+                            @if (!string.IsNullOrEmpty(providerWithServices.Provider.Experience))
+                            {
+                                <p class="text-muted small">@providerWithServices.Provider.Experience</p>
+                            }
+
+                            <!-- Reviews Section -->
+                            @if (providerWithServices.RecentReviews.Any())
+                            {
+                                <div class="mb-3">
+                                    <h6 class="text-muted">Recent Reviews:</h6>
+                                    <div class="row g-2">
+                                        @foreach (var review in providerWithServices.RecentReviews)
+                                        {
+                                            <div class="col-md-6">
+                                                <div class="border rounded p-2 bg-light">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <small class="fw-bold">@review.Booking?.Customer?.FullName</small>
+                                                        <div>
+                                                            @for (int i = 1; i <= 5; i++)
+                                                            {
+                                                                <small class="text-warning">@(i <= review.Rating ? "★" : "☆")</small>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted">"@(review.Comment.Length > 60 ? review.Comment.Substring(0, 60) + "..." : review.Comment)"</small>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    @if (providerWithServices.TotalReviewCount > 3)
+                                    {
+                                        <small class="text-muted">And @(providerWithServices.TotalReviewCount - 3) more reviews...</small>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-muted small mb-3">
+                                    <em>No reviews yet</em>
+                                </div>
+                            }
+
+                            <!-- Services Section -->
+                            <h6 class="text-primary mb-3">Services Offered:</h6>
+                            <div class="row g-3">
+                                @foreach (var service in providerWithServices.Services)
+                                {
+                                    var isSelected = Model.ServiceId == service.ServiceId;
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="card h-100 @(isSelected ? "border-primary" : "border-light")">
+                                            <div class="card-body">
+                                                <h6 class="card-title">@service.ServiceName</h6>
+                                                <p class="card-subtitle text-muted small">@service.Category</p>
+                                                <p class="card-text small">@service.Description</p>
+                                                <p class="card-text fw-bold text-success">@service.BasePrice.ToString("C0")</p>
+                                                <p class="card-text"><small class="text-muted">Region: @service.Region</small></p>
+
+                                                <!-- Available Time Slots -->
+                                                @if (service.AvailableSlots.Any())
+                                                {
+                                                    <div class="mb-2">
+                                                        <small class="text-muted">Available slots:</small>
+                                                        <div class="d-flex flex-wrap gap-1">
+                                                            @foreach (var slot in service.AvailableSlots.Take(3))
+                                                            {
+                                                                <small class="badge bg-light text-muted border">
+                                                                    @slot.AvailableDate.ToString("MM/dd")
+                                                                </small>
+                                                            }
+                                                            @if (service.AvailableSlots.Count > 3)
+                                                            {
+                                                                <small class="badge bg-secondary">
+                                                                    +@(service.AvailableSlots.Count - 3)
+                                                                </small>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                            <div class="card-footer bg-transparent p-2">
+                                                <form method="get" asp-action="CreateForCustomer">
+                                                    <input type="hidden" name="serviceId" value="@service.ServiceId" />
+                                                    <input type="hidden" name="category" value="@Model.CategoryFilter" />
+                                                    <input type="hidden" name="region" value="@Model.RegionFilter" />
+                                                    <input type="hidden" name="priceSort" value="@Model.PriceSort" />
+                                                    <button type="submit" class="btn btn-sm btn-outline-primary w-100">
+                                                        @(isSelected ? "Selected" : "Choose Service")
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">No services available for this category.</div>
+    }
+
+    <form asp-action="CreateForCustomer" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        @if (Model.ServiceId > 0)
+        {
+            <input type="hidden" asp-for="ServiceId" />
+        }
+        else
+        {
+            <div class="alert alert-warning">Please choose a service from the cards above.</div>
+        }
+
+        <div class="mb-3">
+            <label class="form-label">Available Time Slot</label>
+            <select asp-for="AvailabilityId" class="form-select" asp-items="Model.Availabilities">
+                <option value="">-- Select a time slot --</option>
+            </select>
+            <span asp-validation-for="AvailabilityId" class="text-danger"></span>
+        </div>
+
+        @if (!Model.Availabilities.Any())
+        {
+            <div class="alert alert-warning">No available time slots for the selected filters.</div>
+        }
+
+        @if (Model.SelectedService != null)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.SelectedService.Name (@Model.SelectedService.Category)</h5>
+                    <p class="card-text text-muted">@Model.SelectedService.Description</p>
+                    <p class="card-text"><strong>Base Price:</strong> @Model.SelectedService.BasePrice.ToString("N0")</p>
+                    <p class="card-text"><strong>Provider:</strong> @Model.SelectedService.ServiceProvider?.ApplicationUser?.FullName</p>
+                </div>
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        <a asp-action="MyBookings" class="btn btn-secondary ms-2">Back to My Bookings</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

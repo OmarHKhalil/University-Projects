@@ -1,0 +1,54 @@
+@model IEnumerable<mike2.Models.Booking>
+@{
+    ViewData["Title"] = "Incoming Bookings";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Incoming Bookings</h2>
+    <p class="text-muted">Manage booking requests coming to you as a service provider.</p>
+
+    <table class="table table-striped table-bordered mt-3">
+        <thead class="table-light">
+            <tr>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.Customer?.FullName (@b.Customer?.Email)</td>
+                <td>@b.Service?.Name</td>
+                <td>@b.Availability?.AvailableDate.ToString("yyyy/MM/dd")</td>
+                <td>@b.Availability?.StartTime.ToString(@"hh\:mm") - @b.Availability?.EndTime.ToString(@"hh\:mm")</td>
+                <td>@b.Status</td>
+                <td>
+                    @if (b.Status == mike2.Models.BookingStatus.Pending)
+                    {
+                        <form asp-action="Accept" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@b.Id" />
+                            <button type="submit" class="btn btn-sm btn-success">Accept</button>
+                        </form>
+                        <form asp-action="Reject" method="post" class="d-inline ms-1">
+                            <input type="hidden" name="id" value="@b.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                        </form>
+                    }
+                    else if (b.Status == mike2.Models.BookingStatus.Accepted)
+                    {
+                        <form asp-action="Complete" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@b.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Mark Completed</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

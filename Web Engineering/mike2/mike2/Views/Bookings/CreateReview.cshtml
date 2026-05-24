@@ -1,0 +1,56 @@
+@model mike2.Models.Booking
+@{
+    ViewData["Title"] = "Leave Review";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Leave Review</h2>
+
+    @if (TempData.ContainsKey("ErrorMessage"))
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Service?.Name</h5>
+            <p class="card-text">
+                Provider: @Model.ServiceProvider?.ApplicationUser?.FullName<br/>
+                Date: @Model.Availability?.AvailableDate.ToString("yyyy/MM/dd")<br/>
+                Time: @Model.Availability?.StartTime.ToString(@"hh\:mm") - @Model.Availability?.EndTime.ToString(@"hh\:mm")
+            </p>
+        </div>
+    </div>
+
+    <form asp-action="CreateReview" method="post" class="mt-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating (1-5)</label>
+            <select name="rating" id="rating" class="form-select" required>
+                <option value="">Select Rating</option>
+                <option value="5" selected>⭐⭐⭐⭐⭐ Excellent (5)</option>
+                <option value="4">⭐⭐⭐⭐ Very Good (4)</option>
+                <option value="3">⭐⭐⭐ Good (3)</option>
+                <option value="2">⭐⭐ Fair (2)</option>
+                <option value="1">⭐ Poor (1)</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment (Optional)</label>
+            <textarea name="comment" id="comment" class="form-control" rows="4" placeholder="Share your experience..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+        <a asp-action="MyBookings" class="btn btn-secondary ms-2">Back to My Bookings</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

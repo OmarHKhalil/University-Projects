@@ -1,0 +1,46 @@
+@model mike2.Models.Service
+@{
+    ViewData["Title"] = "Edit Service";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Edit Service (Name & Category)</h2>
+    <p class="text-muted">Update the basic service information: name, category, description, and base price.</p>
+
+    <form asp-action="EditService" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Category" class="form-label"></label>
+            <input asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="BasePrice" class="form-label"></label>
+            <input asp-for="BasePrice" class="form-control" />
+            <span asp-validation-for="BasePrice" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Services" class="btn btn-secondary ms-2">Back to Services</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

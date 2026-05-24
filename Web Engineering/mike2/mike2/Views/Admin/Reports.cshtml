@@ -1,0 +1,67 @@
+@model mike2.Controllers.AdminReportsViewModel
+@{
+    ViewData["Title"] = "System Reports";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">System Reports & Statistics</h2>
+    <p class="text-muted">Quick overview of bookings, reviews, and active users.</p>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Today's Bookings</h5>
+                    <p class="card-text display-6">@Model.TodayBookings</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h5 class="card-title">This Month's Bookings</h5>
+                    <p class="card-text display-6">@Model.MonthBookings</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card border-info">
+                <div class="card-body">
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="card-text display-6">@Model.TotalUsers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4 mb-3">
+            <div class="card border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Active Users</h5>
+                    <p class="card-text display-6">@Model.ActiveUsers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Total Reviews</h5>
+                    <p class="card-text display-6">@Model.TotalReviews</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card border-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Visible Reviews</h5>
+                    <p class="card-text display-6">@Model.VisibleReviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a asp-action="Index" class="btn btn-secondary mt-3">Back to Admin Dashboard</a>
+</div>
+
+

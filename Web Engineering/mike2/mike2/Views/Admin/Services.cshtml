@@ -1,0 +1,45 @@
+@model IEnumerable<mike2.Models.Service>
+@{
+    ViewData["Title"] = "Services & Categories Management";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Services & Categories Management</h2>
+    <p class="text-muted">
+        Manage the basic services: names, categories and base prices.
+    </p>
+
+    <table class="table table-striped table-bordered mt-3">
+        <thead class="table-light">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Base Price</th>
+                <th>Service Provider</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.Category</td>
+                <td>@s.Description</td>
+                <td>@s.BasePrice.ToString("N0")</td>
+                <td>@s.ServiceProvider?.ApplicationUser?.FullName</td>
+                <td>
+                    <a asp-action="EditService" asp-route-id="@s.Id" class="btn btn-sm btn-outline-secondary">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <a asp-action="Index" class="btn btn-secondary mt-3">Back to Admin Dashboard</a>
+</div>
+
+

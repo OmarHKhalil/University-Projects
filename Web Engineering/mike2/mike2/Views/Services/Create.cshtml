@@ -1,0 +1,60 @@
+﻿@model mike2.Models.Service
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Service</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="POST">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (TempData.ContainsKey("Begin")) { <div class="alert alert-secondary">@TempData["Begin"]</div> }
+            @if (TempData.ContainsKey("Debug")) { <div class="alert alert-info">@TempData["Debug"]</div> }
+            @if (TempData.ContainsKey("UserId")) { <div class="alert alert-warning">User ID: @TempData["UserId"]</div> }
+            @if (TempData.ContainsKey("RoleBefore")) { <div class="alert alert-info">@TempData["RoleBefore"]</div> }
+            @if (TempData.ContainsKey("RoleAfter")) { <div class="alert alert-info">@TempData["RoleAfter"]</div> }
+            @if (TempData.ContainsKey("ProviderBefore")) { <div class="alert alert-info">@TempData["ProviderBefore"]</div> }
+            @if (TempData.ContainsKey("ProviderNull")) { <div class="alert alert-warning">@TempData["ProviderNull"]</div> }
+            @if (TempData.ContainsKey("ProviderCreated")) { <div class="alert alert-success">@TempData["ProviderCreated"]</div> }
+            @if (TempData.ContainsKey("ProviderFound")) { <div class="alert alert-success">@TempData["ProviderFound"]</div> }
+            @if (TempData.ContainsKey("BeforeServiceSave")) { <div class="alert alert-primary">@TempData["BeforeServiceSave"]</div> }
+            @if (TempData.ContainsKey("ModelStateInvalid")) { <div class="alert alert-danger">@TempData["ModelStateInvalid"]</div> }
+            @if (TempData.ContainsKey("ModelError")) { <div class="alert alert-danger">@TempData["ModelError"]</div> }
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasePrice" class="control-label"></label>
+                <input asp-for="BasePrice" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="BasePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" onclick="alert('Submitting')" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

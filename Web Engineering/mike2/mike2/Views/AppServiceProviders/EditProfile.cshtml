@@ -1,0 +1,42 @@
+﻿@model mike2.ViewModel.ProviderProfileEditViewModel
+
+@{
+    ViewData["Title"] = "تعديل الملف الشخصي";
+}
+
+<h2>تعديل الملف الشخصي لمقدّم الخدمة</h2>
+
+@if (TempData["ProfileUpdated"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["ProfileUpdated"]
+    </div>
+}
+
+<form asp-action="EditProfile" method="post">
+    <div class="form-group">
+        <label asp-for="Experience"></label>
+        <textarea asp-for="Experience" class="form-control"></textarea>
+        <span asp-validation-for="Experience" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Specializations"></label>
+        <input asp-for="Specializations" class="form-control" />
+        <span asp-validation-for="Specializations" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CoveredAreas"></label>
+        <input asp-for="CoveredAreas" class="form-control" />
+        <span asp-validation-for="CoveredAreas" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">حفظ</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

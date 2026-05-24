@@ -1,0 +1,188 @@
+﻿@model mike2.ViewModel.ProviderDashboardViewModel
+
+@{
+    ViewData["Title"] = "Provider Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Provider Dashboard</h2>
+
+    <div class="row">
+
+        <!-- الكارت 1: الملف الشخصي -->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-header">My Profile</div>
+                <div class="card-body">
+                    <p><strong>Name:</strong> @Model.Provider?.ApplicationUser?.FullName</p>
+                    <p><strong>Location:</strong> @Model.Provider?.ApplicationUser?.Location</p>
+                    <p><strong>Experience:</strong> @Model.Provider?.Experience</p>
+                    <p><strong>Specializations:</strong> @Model.Provider?.Specializations</p>
+                    <p><strong>Covered Areas:</strong> @Model.Provider?.CoveredAreas</p>
+
+                    <a asp-controller="AppServiceProviders"
+                       asp-action="EditProfile"
+                       class="btn btn-primary btn-sm">
+                        Edit Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- الكارت 2: إدارة الخدمات -->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-header">My Services</div>
+                <div class="card-body">
+                    <p>Total Services: @Model.ServicesCount</p>
+
+                    <a asp-controller="Services"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage My Services
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- الكارت 3: المواعيد المتاحة -->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-header">Availability</div>
+                <div class="card-body">
+                    <p>Total slots: @Model.Availabilities?.Count() ?? 0</p>
+
+                    <a asp-controller="Availabilities"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Availability
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- جدول الحجوزات الجديدة -->
+    <div class="card mt-4">
+        <div class="card-header">New Bookings</div>
+        <div class="card-body">
+            @if (Model.NewBookings != null && Model.NewBookings.Any())
+            {
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var b in Model.NewBookings)
+                        {
+                            <tr>
+                                <td>@b.Customer?.FullName</td>
+                                <td>@b.Service?.Name</td>
+                                <td>@b.BookingDate</td>
+                                <td>@b.Status</td>
+                                <td>
+                                    <form asp-controller="Bookings" asp-action="Accept" asp-route-id="@b.Id" method="post" style="display:inline">
+                                        <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                                    </form>
+
+                                    <form asp-controller="Bookings" asp-action="Reject" asp-route-id="@b.Id" method="post" style="display:inline">
+                                        <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No new bookings.</p>
+            }
+        </div>
+    </div>
+
+    <!-- سجل الحجوزات -->
+    <div class="card mt-4 mb-4">
+        <div class="card-header">Booking History</div>
+        <div class="card-body">
+            @if (Model.HistoryBookings != null && Model.HistoryBookings.Any())
+            {
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var b in Model.HistoryBookings)
+                        {
+                            <tr>
+                                <td>@b.Customer?.FullName</td>
+                                <td>@b.Service?.Name</td>
+                                <td>@b.BookingDate</td>
+                                <td>@b.Status</td>
+                                <td>
+                                    @if (b.Status == mike2.Models.BookingStatus.Accepted)
+                                    {
+                                        <form asp-controller="Bookings" asp-action="Complete" asp-route-id="@b.Id" method="post" style="display:inline">
+                                            <button type="submit" class="btn btn-primary btn-sm">Complete</button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <a asp-controller="Bookings"
+                   asp-action="ProviderBookingHistory"
+                   class="btn btn-secondary">
+                    View Booking History
+                </a>
+            }
+            else
+            {
+                <p>No bookings yet.</p>
+            }
+        </div>
+    </div>
+
+    <!-- الإشعارات -->
+    <div class="card mt-4 mb-4">
+        <div class="card-header">Notifications</div>
+        <div class="card-body">
+            @if (Model.Notifications != null && Model.Notifications.Any())
+            {
+                <ul class="list-group list-group-flush">
+                    @foreach (var n in Model.Notifications.Take(10))
+                    {
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>@n.Message</span>
+                                <small class="text-muted">@n.CreatedAt</small>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No notifications available.</p>
+            }
+        </div>
+    </div>
+
+</div>
