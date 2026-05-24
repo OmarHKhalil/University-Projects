@@ -1,0 +1,10 @@
+# Ignore datasets and large weights
+DBlur/
+*.pth
+*.pt
+*.pkl
+
+# Ignore heavy output directories
+outputs/
+__pycache__/
+.ipynb_checkpoints/
