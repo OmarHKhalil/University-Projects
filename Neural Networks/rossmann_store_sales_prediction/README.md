@@ -32,7 +32,7 @@ To feeding raw data into deep neural networks, a specialized tabular preprocessi
 $$\text{CompetitionOpen} = 12 \times (\text{Year} - \text{CompetitionOpenSinceYear}) + (\text{Month} - \text{CompetitionOpenSinceMonth})$$
 
 
-4. **Missing Value Imputation:** Missing fields in `CompetitionDistance` were filled with an adversarial placeholder value ($\text{max\_distance} \times 2$) to indicate extreme isolation.
+4. **Missing Value Imputation:** Missing fields in `CompetitionDistance` were filled with an adversarial placeholder value calculated as $(\text{max\_distance} \times 2)$ to systematically encode extreme geographical isolation.
 5. **Feature Scaling & Encoding:** * **Numerical Columns:** Rescaled strictly between $[0, 1]$ utilizing `MinMaxScaler`.
 * **Categorical Columns:** Expanded into binary vector spaces via `OneHotEncoder(sparse_output=False)`.
 
