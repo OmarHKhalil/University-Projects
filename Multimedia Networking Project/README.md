@@ -43,7 +43,7 @@ A comprehensive Windows Forms application built in C# that combines advanced **I
 git clone https://github.com/OmarHKhalil/University-Projects.git
 
 # Navigate into the Multimedia Networking Project directory
-cd "Mobile Application Projects/Multimedia Networking Project"
+cd Mobile Application Projects/Multimedia Networking Project
 ```
 
 2. **Open the Project:**
