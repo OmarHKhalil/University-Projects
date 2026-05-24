@@ -1,6 +1,4 @@
 
-
-```markdown
 # Venezia Gym Management Ecosystem (Flutter Application)
 
 A modern, highly responsive, and visually striking cross-platform mobile application interface for a fitness ecosystem named **VENEZIA GYM**, built using **Flutter** and **Material 3**.
@@ -67,8 +65,11 @@ void _loginPressed() {
 1. Clone this repository onto your workstation:
 
 ```bash
-   git clone [https://github.com/YOUR_USERNAME/venezia-gym-flutter.git](https://github.com/YOUR_USERNAME/venezia-gym-flutter.git)
+# Clone the entire repository
+git clone https://github.com/OmarHKhalil/University-Projects.git
 
+# Navigate into the venezia-gym-flutter directory
+cd Mobile Application Projects/venezia-gym-flutter
 ```
 
 2. Pull the dependencies declared inside your `pubspec.yaml` manifest:
