@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #di nav{
+    width: 100%;
+    height: 17vh;
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;  
+    position: relative;
+    z-index: 2;
+    border-bottom: solid 2px gold;
+    box-shadow: solid 2px black;
+    position: fixed;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius:50px ;
+ }
+#ul1{
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    list-style-type:none;  
+    margin-top: 20px;
+    margin-left: 800px;
+}
+ul li{
+    width: 100px;
+}
+/* تكبير عرض اليست التي */
+ul #lli{
+width: 125px;
+}
+#ul1 li select{
+    font-size: 25px;
+    height: 40px;
+    width: 100px;
+    background-color:rgb(240, 240, 240);
+   
+    text-align: center;
+    border-radius: 50px;
+    color: gold;
+    
+}
+ul li button{
+width: 80px;
+height: 40px;
+border-color: gold;
+border-radius: 40px;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+}
+ul li button:hover{
+    background-color:rgb(202, 200, 200);
+}
+    </style>
+</head>
+<body>
+    
+
+
+ <div id="di">
+        <nav id="na">
+            <br> 
+            <img src="car-side-solid.svg" alt="logo" height="60px" style="z-index: 1;transform: translate(100px,10px);">
+            <h2 style="transform: translate(200px,-50px);">Welcome To <br>&#160&#160&#160&#160&#160<span style="color: gold;">AOK</span></h2>
+            <ul id="ul1" >
+                <li id="lli"><select name="" id="carselect">
+                    <option value="">Cars</option>
+                    <option value="Mercedes.html">Mercedes</option>
+                    <option value="BMW.html">BMW</option>
+                    <option value="Ferrari.html">Ferrari</option>
+                </select></li>
+                <li><a href=""><button id="a1">log in</button></a></li>
+                <li><a href=""><button id="a1">Sing up</button></a></li>
+                <li id="li3"><a href="#gallery" class="c"><button id="a1">Gallery</button></a></li>
+                <li id="li2"><a href="#sercics"class="c"><button id="a1">Service</button></a></li>
+                <li ><a href="#lastnews" class="c"><button id="a1">Last News</button></a></li>
+                <li id="li1"><a href="#about" class="c"><button id="a1">About Us</button></a></li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>

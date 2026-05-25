@@ -1,0 +1,121 @@
+header.flex{
+    justify-content: space-between;
+    padding: 1.2rem 10% 10px;
+    background-color: rgba(255, 255, 255,2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid  rgb(255, 228, 74);
+    z-index: 1;
+    position: sticky;
+    top:0;
+    opacity: 1;
+    border-radius:0 0 50px 50px;
+    -webkit-border-radius:0 0 50px 50px;
+    -moz-border-radius:0 0 50px 50px;
+    -ms-border-radius:0 0 50px 50px;
+    -o-border-radius:0 0 50px 50px;
+}
+header.flex .link .service, .about{
+    margin: 0 1rem;
+    color:black;
+}
+
+header.flex .link .about, header.flex .link .service, header.flex .link .news{
+    border: 2px solid  rgb(255, 228, 74);
+    border-radius: 55px;
+    padding: 0.44rem 1rem;
+    -webkit-border-radius: 55px;
+    -moz-border-radius: 55px;
+    -ms-border-radius: 55px;
+    -o-border-radius: 55px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.fa-solid{
+    color: var(--icon);
+}
+header.flex .link .about:hover,
+header.flex .link .service:hover,
+header.flex .link .news:hover,
+header.flex .link .about:hover .fa-solid,
+header.flex .link .service:hover .fa-brands,
+header.flex .link .news:hover .fa-solid
+{
+    background-color: #d3d3d3d3;
+    color:black;
+}
+.link .fa-solid,
+.link .fa-brands{
+    margin-right: 0.3rem;
+    color:black;
+}
+.cart{
+    border: 1px  rgb(255, 228, 74) solid;
+    color: black;
+    font-size: 0.9rem;
+    padding: 0.44rem 1.1rem 0.44rem 0.6rem;
+    position: relative;
+    border-radius: 55px;
+    -webkit-border-radius: 55px;
+    -moz-border-radius: 55px;
+    -ms-border-radius: 55px;
+    -o-border-radius: 55px;
+}
+.cart .fa-solid{
+    color:black;
+}
+
+.p-num{
+    position: absolute;
+    right: 0;
+    top:-9px;
+    font-weight: bold;
+    background-color: #d3d3d3d3;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+/*--logo--*/
+.logo:hover{
+    scale: 0.95;
+}
+header .logo img{
+    font-size: 30px;
+    color:black;
+}
+.logo span{
+    font-weight: bold;
+    color: rgb(255, 228, 74);
+}
+.logo p{
+    letter-spacing: 2.5px;
+    color:black;
+}
+
+/*--phone schren--*/
+@media (width < 715px) {
+    .logo{
+        display: none;
+    }
+
+    header.flex{
+        justify-content: center;
+        padding-inline: 0; 
+    }
+
+    .link{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    header .flex{
+        justify-content: center;
+    }
+}

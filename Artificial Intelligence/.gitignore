@@ -1,0 +1,76 @@
+# ==========================================
+# 1. Java & NetBeans (For Maze, Connect4, and Calculator)
+# ==========================================
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# NetBeans specific artifacts
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# ==========================================
+# 2. JavaCC Generated Files (Important!)
+# ==========================================
+# We only keep the original .jj files, and ignore auto-generated java files
+# If you want to keep them, you can comment these lines out
+*TokenManager.java
+*Constants.java
+ParseException.java
+SimpleCharStream.java
+Token.java
+
+# ==========================================
+# 3. Prolog Files Artifacts (For Family Knowledge Base)
+# ==========================================
+# Backup files often created by text editors
+*~
+*.bak
+*.tmp
+
+# ==========================================
+# 4. OS & System Specific Files (General)
+# ==========================================
+# Windows thumbnail databases
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Multimedia folder prevents Windows Explorer from customizing the folder
+[Dd]esktop.ini
+
+# Mac files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# 5. IDEs & Editors (VS Code / IntelliJ if used)
+# ==========================================
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath

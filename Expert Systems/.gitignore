@@ -1,0 +1,28 @@
+# Virtual Environments
+# To block virtual environment folders containing locally installed libraries
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Python Cache Files
+# These files are generated automatically by Python when running the code and do not need to be uploaded
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE and OS Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs and Temporary Files
+*.log

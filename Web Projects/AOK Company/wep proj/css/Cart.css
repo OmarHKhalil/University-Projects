@@ -1,0 +1,96 @@
+body{
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    grid-template-rows: auto 1fr auto;
+
+}
+main{
+    text-align: center;
+}
+section.Cart article.flex{
+    background-color:  #d3d3d3d3;
+    border:2px solid  rgb(255, 228, 74);
+    margin-top: 1.8rem;
+    justify-content: space-between;
+    max-width: 450px;
+    margin-inline: auto;
+    font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    border-radius:4px ;
+    -webkit-border-radius:4px ;
+    -moz-border-radius:4px ;
+    -ms-border-radius:4px ;
+    -o-border-radius:4px ;
+}
+section.Cart article.flex .fa-trash-can{
+    color:red;
+    margin-left: 1rem;
+}
+
+section.Cart article.flex .decrease{
+    font-size: 1.9rem;
+}
+section.Cart article.flex .increase{
+    font-size: 1.4rem;
+}
+section.Cart article.flex .q{
+    height: 21px;
+    width: 21px;
+    justify-content: center;
+    margin-inline: 0.4rem;
+    border:  rgb(255, 228, 74) 1px solid;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+
+.clear{
+    background-color: red;
+    color:white;
+    margin-top: 1rem;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+section.summary{
+    background-color: #d3d3d3d3;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    width:233px;
+    margin-inline: auto;
+    margin-top: 2.5rem;
+    border: 2px  rgb(255, 228, 74) solid;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+section.summary h1{
+    font-size: 1.2rem;
+    padding-block: 0.5rem;
+    border-bottom: 2px  rgb(255, 228, 74) solid;
+}
+section.summary div.flex{
+    justify-content: space-between;
+}
+section.summary button.check{
+    width:100%;
+    padding-block: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color:  rgb(255, 228, 74);
+}
+section.summary a{
+    padding-block: 0.5rem;
+    font-size: 0.9rem;
+    color: red;
+}

@@ -1,0 +1,146 @@
+options
+{
+static = true;
+IGNORE_CASE = false;
+}
+
+PARSER_BEGIN(test)
+
+package homework;
+import java.util.Scanner;
+public class test
+{
+public static void main(String[] args) throws ParseException
+	{
+		System.out.print("Hello World \n");
+		test parser = new test(System.in);
+		Scanner input = new Scanner(System.in);
+		int c=1;		
+		while(c!=0) {
+		    System.out.println("----------------------------------");
+			parser.start();
+			System.out.println("accept");
+			System.out.println("To Stop Enter 0 To Countinue Enter Another Number");
+			c=input.nextInt();		
+		}
+		System.out.println("FINISH");
+		
+	}
+}
+PARSER_END(test)
+
+TOKEN : {
+  <IF : "if">|<ELSE: "else">|<ELSEIF : "elseif">|<WHILE : "while">|<FOR : "for">|<RETURN : "return">|<VOID : "void">
+  }
+TOKEN : {
+  <PLUS : "+">|<subtract : "-">|<multiply : "*">|<division : "/">|<rest : "%">
+  }
+TOKEN : {
+  <big : "<">|<bigeq : "<=">|<small : ">">|<smalleq : "=>">|<equal : "=">|<equaltoo : "==">|<notequal : "!=">|<not : "!">|<and : "&&">|<or : "||">
+  }
+TOKEN : {
+  <dot : ".">|<semi : ";">|<pan : "\"">|<so : "[">|<sc : "]">|<bo : "{">|<bc : "}">|<po : "(">|<pc : ")">|<NOT : ["*"]>
+  }
+TOKEN : {
+  < type : "int"|"double"|"float"|"char"|"string"|"boolean" >
+  }
+TOKEN : {
+  <Input :"cin"> | <Output :"cout">|<BOOLEAN : "true"|"false">
+  }
+TOKEN : {
+  <#digit :(["0"-"9"])+>  | <#sign :("+"|"-")?<digit>> | <number : <sign>(<dot><digit>)?> | <#CHAR :(["a"-"z"]|["A"-"Z"])>
+	|<STRING :(<CHAR>)+>
+  }
+
+SKIP:{ "\n"|"\r"|"\t"}
+SKIP:{" "}
+
+void start() :
+{}
+{
+select()<semi>|               
+declear()<semi>|
+print()<semi>|
+loop()|
+condition()
+}
+
+//Contains a number or string
+void terms():
+{} { 
+    <number>|<STRING>
+}
+//Contains a number or string or calculation or boolean
+void values() :
+{}
+{
+	  <pan><STRING><pan>|terms()((operator()terms())+)?|<BOOLEAN>
+}
+//Definition of variables
+void declear() :
+{}
+{
+	<type><STRING>(<equal>values())?
+}
+//Assign of variables
+void assign() :
+{}
+{
+	//<STRING>
+(<number>)?<equal>values()
+}
+//Select a mathematical or logical operation or assign
+void select(): { } {
+terms()(oparith()|assign()|oplogic())
+}
+//mathematical operation
+void oparith(): { } {
+//  terms()
+   (operator()terms())+(<equal>terms())?
+}
+//logical operation
+void oplogic(): { } {
+//  terms()
+   (logic()values())+
+}
+//Choose a operators
+void operator() :
+{}
+{
+  <PLUS>|<subtract>|<multiply>|<division>|<rest>
+}
+//Choose a logic
+void logic() :
+{}
+{
+  <big>|<bigeq>|<small>|<smalleq>|<equaltoo>|<notequal>|<not>|<and>|<or>
+}
+void arith(): { } {
+   (operator()<number>)+
+}
+
+//Choose a statments for instructions
+void statments(): { } {
+ (   declear()|print()|select()
+ )<semi>
+}
+//print a statments for instructions
+void print():
+{}
+{
+	(<Input><small><small><STRING>)|(<Output><big><big>values())
+}
+//Definition loop
+void loop():
+{}
+{
+	<WHILE><po>select()<pc><bo>(statments())?<bc>
+}
+//Definition condition 
+void condition():
+{}
+{
+	 <IF><po>select()<pc><bo>(statments())?<bc>
+	 ((<ELSEIF><po>select()<pc><bo>(statments())?<bc>)+)?
+	 (<ELSE><bo>(statments())?<bc>)
+}

@@ -1,0 +1,89 @@
+options
+{
+static = true;
+IGNORE_CASE = false;
+}
+
+PARSER_BEGIN(test)
+package homework;
+
+public class test
+{
+public static void main(String[] args) throws ParseException
+	{
+		System.out.print("Hello World \n");
+		test parser = new test(System.in);
+		 
+		
+			parser.start();
+			System.out.println("accept");
+		
+	}
+}
+PARSER_END(test)
+
+TOKEN : {
+  <PLUS : "+">|<subtract : "-">|<multiply : "*">|<division : "/">|<rest : "%">
+  }
+TOKEN : {
+  <big : "<">|<small : ">">|<equal : "=">|<notequal : "!=">
+  }
+TOKEN : {
+  <dot : ".">|<semi : ";">
+  }
+TOKEN : {
+  <Int : "int">|<Double : "double">|<Float : "float">|<String : "string">|
+  <Char : "char">|<Boolean : "boolean">
+  }
+TOKEN : {<pan : "\"">}
+TOKEN : {
+  <Input :"cin"> | <Output :"cout">
+  }
+TOKEN : {
+  <#digit :(["0"-"9"])+>  | <#sign :("+"|"-")?<digit>> | <number : <sign>(<dot><digit>)?> | <#CHAR :(["a"-"z"]|["A"-"Z"])>
+	|<STRING :(<CHAR>)+>|<sss : ("b|c") >
+  }
+
+SKIP:{ "\n"|"\r"|"\t"}
+SKIP:{" "}
+
+void start() :
+{}
+{
+  <sss>
+ |	variables()<STRING>(<equal><number>)?<semi>
+|
+	op()
+| 
+	print()
+}
+
+
+//void t():
+//{}
+//{
+//	(<NUMBER>(<dot><NUMBER>)?) | <CHARACTERS>
+//}
+void variables() :
+{}
+{
+	<Int>|<Double>|<Float>|<String>|<Char>|<Boolean>
+}
+void logic() :
+{}
+{
+  <big>|<small>|<equal>|<notequal>
+}
+void operator() :
+{}
+{
+  <PLUS>|<subtract>|<multiply>|<division>|<rest>
+}
+void op(): { } {
+	<number>((operator()<number>)+(<equal><number>)?|logic()<number>)<semi>
+}
+void print():
+{}
+{
+	(<Input><small><small><STRING><semi>)|(<Output><big><big>(<pan>)?(<STRING>|<number>)(<pan>)?<semi>)
+}

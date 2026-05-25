@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+background-color: rgb(242, 240, 240);
+        }
+*{
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+#di nav{
+    width: 100%;
+    height: 17vh;
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;  
+    position: relative;
+    z-index: 2;
+    border-bottom: solid 2px gold;
+    box-shadow: solid 2px black;
+    position: fixed;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius:50px ;
+    transform: translate(0px,0px);
+ }
+#ul1{
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    list-style-type:none;  
+}
+ul li{
+    width: 100px;
+}
+/* تكبير عرض اليست التي */
+ul #lli{
+width: 125px;
+}
+ul li button{
+width: 80px;
+height: 40px;
+border-color: gold;
+border-radius: 40px;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+transform: translate(-30px,-5px);
+}
+ul li button:hover{
+    background-color:rgb(202, 200, 200);
+}
+footer{
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    padding-block: 1rem;
+    margin-top: -1400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid  rgb(255, 228, 74);
+    border-radius: 50px 50px 0 0;
+    -webkit-border-radius: 50px 50px 0 0;
+    -moz-border-radius: 50px 50px 0 0;
+    -ms-border-radius: 50px 50px 0 0;
+    -o-border-radius: 50px 50px 0 0;
+    line-height: 2rem;
+    transform: translate(0px,250px);
+}
+footer span{
+    color: rgb(255, 228, 74);
+    text-transform: capitalize;
+}
+footer .managed{
+    display: flex;
+    justify-content: space-between;
+}
+footer a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+footer .icon{
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.slider {
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider1-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider2-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    cursor:pointer;
+}
+
+.slider-prev {
+    left: 10px;
+}
+
+.slider-next {
+    right: 10px;
+}
+
+</style>
+</head>
+<body>
+    <div id="di">
+        <nav id="na">
+            <br> 
+            <img src="car-side-solid.svg" alt="logo" height="60px" style="z-index: 1;transform: translate(100px,10px);">
+            <h2 style="transform: translate(180px,-50px);">Welcome To <br>&#160&#160&#160&#160&#160<span style="color: gold;">AOK</span></h2>
+            <ul id="ul1" style="transform: translate(800px,-90px);">
+                <div style="display:flex;">
+                <div style="transform: translate(-250px,-35px);">
+                <li style="height: 55px;"><a href="index.php"><button id="a1">log in</button></a></li>
+                <li style="height: 55px;"><a href="signup.php"><button id="a1">Sign up</button></a></li>
+                </div>
+                <form   style="display: flex;">
+                <li><a href="Mercedes.html"><button name="m">Mercedes</button></a></li>
+                <li><a href="BMW.html"><button name="b">BMW</button></a></li>
+                <li><a href="Ferrari.html"><button name="f">Ferrari</button></a></li>
+                </form>
+                <li id="li3"><a href="#gallery" class="c"><button id="a1">Gallery</button></a></li>
+                <li id="li2"><a href="#sercics"class="c"><button id="a1">Service</button></a></li>
+                <li ><a href="#lastnews" class="c"><button id="a1">Last News</button></a></li>
+                <li id="li1"><a href="#about" class="c"><button id="a1">About Us</button></a></li>
+                </div>
+            </ul>
+        </nav>
+      
+        
+<div style="transform: translate(0px,150px); width:700px ; font-size: 20px;">
+    <p ><h1 style="color: gold; ">Privacy policy</h1></p>
+  <p>Privacy policy is a document that outlines how personal information is collected, used, and protected by a car selling website. Its purpose is to safeguard user privacy and ensure the security of the information they provide when using the website.</p>  
+
+   <p>A typical car selling website's privacy policy includes:</p> 
+    
+    <p>1. Types of information collected: It specifies the types of information collected from users, such as name, address, phone number, email, and more.</p>
+    
+    <p>2. Use of information: It defines the purposes for which information is collected, such as processing requests, providing services, and improving user experience.</p>
+    
+    <p>3. Storage and protection of information: It outlines how personal information is stored and protected, including security measures and maintaining information confidentiality.</p>
+    
+    <p>4. Information sharing: It specifies whether personal information will be shared with third parties, and if so, the purposes and methods of sharing.</p>
+    
+    <p>5. User rights: It explains users' rights regarding accessing, correcting, or deleting their personal information.</p>
+    
+    <p>6. Changes to the privacy policy: It details how any changes to the privacy policy will be handled and how users will be informed.</p>
+    
+    <p>In summary, a car selling website's privacy policy aims to protect user privacy and ensure that their information is processed and stored securely in accordance with best data protection practices.</p>
+
+</div>
+
+<div style="transform: translate(0px,150px); width:700px ; font-size: 20px;">
+<p><h1 style="color: gold;">Terms of Use</h1></p>
+
+<p>Welcome to our car selling website. By accessing and using this website, you agree to comply with and be bound by the following terms and conditions of use. If you do not agree with any part of these terms, please do not use our website.</p>
+
+<p>1. Use of the Website: The content of the pages of this website is for your general information and use only. It is subject to change without notice.</p>
+
+<p>2. Account Registration: In order to access certain features of the website, you may be required to register an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
+
+<p>3. Listing and Selling Cars: Users may list cars for sale on the website. By listing a car, you agree to provide accurate and up-to-date information about the vehicle. The website reserves the right to remove any listing that violates our policies.</p>
+
+<p>4. Prohibited Activities: You agree not to engage in any activity that may disrupt or interfere with the proper functioning of the website, including but not limited to hacking, spamming, or transmitting malware.</p>
+
+<p>5. Privacy Policy: Your use of this website is also governed by our Privacy Policy, which outlines how we collect, use, and protect your personal information. By using this website, you consent to the practices described in the Privacy Policy.</p>
+
+<p>6. Limitation of Liability: We do not guarantee the accuracy, completeness, or timeliness of information on this website. We shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use of the website.</p>
+
+<p>By using this website, you acknowledge that you have read and understood these Terms of Use and agree to abide by them. If you have any questions or concerns about these terms, please contact us.</p>
+</div>
+<div style="transform: translate(0px,150px); width:700px ; font-size: 20px;">
+    <p><h1 style="color: gold;">Terms of Sale</h1></p>
+    
+    <p>Welcome to our car selling website. By purchasing a vehicle from our website, you agree to comply with and be bound by the following terms and conditions of sale. If you do not agree with any part of these terms, please do not make a purchase. </p>
+    
+    <p>1. Vehicle Information: The information provided about each vehicle for sale on our website is as accurate as possible. However, we do not guarantee the accuracy or completeness of the information. It is your responsibility to verify the details of the vehicle before making a purchase.</p>
+    
+    <p>2. Pricing and Payment: The prices listed for vehicles are subject to change without notice. We reserve the right to modify prices or cancel orders at our discretion. Payment for a vehicle must be made in full before the vehicle is released to the buyer.</p>
+    
+    <p>3. Vehicle Inspection: We recommend that you inspect the vehicle in person or have a professional inspection done before making a purchase. We do not guarantee the condition of the vehicle and are not responsible for any defects or issues that may arise after the sale.</p>
+    
+    <p>4. Returns and Refunds: All sales are final, and we do not accept returns or offer refunds unless otherwise specified in writing. If there is a dispute regarding the condition of the vehicle at the time of purchase, it must be resolved directly between the buyer and the seller.</p>
+    
+    <p>5. Transfer of Ownership: Once payment has been made in full, the ownership of the vehicle will be transferred to the buyer. It is the buyer's responsibility to handle all necessary paperwork and legal requirements for transferring ownership.</p>
+    
+    <p>By making a purchase on our website, you acknowledge that you have read and understood these Terms of Sale and agree to abide by them. If you have any questions or concerns about these terms, please contact us before completing your purchase.</p>
+
+</div>
+
+</div>
+
+<div class="slider" style="width: 500px;height: 450px; ; border: solid 2px gold;overflow: hidden;background-color: white;border-radius: 15px;transform:translate(800px,-1500px) ;">
+    <img src="n.jpg" alt="" class="slider-img">
+    <img src="nn.jpg" alt="" class="slider-img">
+    <img src="nnn.webp" alt="" class="slider-img">
+    <div class="slider-prev" onclick="changeSlide(-1)">&#10094;
+    </div>
+    <div class="slider-next" onclick="changeSlide(1)">&#10095;
+    </div>
+</div> 
+<div class="slider" style="width: 500px;height: 450px; ; border: solid 2px gold;overflow: hidden;background-color: white;border-radius: 15px;transform:translate(800px,-1400px) ;">
+    <img src="u.jpg" alt="" class="slider1-img" >
+    <img src="uu.webp" alt="" class="slider1-img">
+    <img src="uuu.png" alt="" class="slider1-img">
+    <div class="slider-prev" onclick="changeSlide(-1)">&#10094;
+    </div>
+    <div class="slider-next" onclick="changeSlide(1)">&#10095;
+    </div>
+</div> 
+<div class="slider" style="width: 500px;height: 450px; ; border: solid 2px gold;overflow: hidden;background-color: white;border-radius: 15px;transform:translate(800px,-1300px) ;">
+    <img src="s.avif" alt="" class="slider2-img">
+    <img src="ss.jpg" alt="" class="slider2-img">
+    <img src="sss.png" alt="" class="slider2-img">
+    <div class="slider-prev" onclick="changeSlide(-1)">&#10094;
+    </div>
+    <div class="slider-next" onclick="changeSlide(-1)">&#10095;
+    </div>
+</div> 
+    <footer>
+        <p>Designed and developed by<span> abd alazez bwabh </span>&copy 2024</p>
+        <p>AOK Company for selling and trading cars, managed by:</p>
+        <div class="managed">
+        </div>
+        <a href="#">Terms and Condition</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Data Protection</a>
+        <div class="icon">
+    
+    <a href=""><img src="Picure/icon/facebook-f.svg" height="25px" width="25px" alt="not found" ></a>
+            <a href=""><img src="Picure/icon/instagram.svg" height="25px" width="25px" alt="not found"></a>
+            <a href=""><img src="Picure/icon/x-twitter.svg" height="25px" width="25px" alt="not found"></a>
+            <a href=""><img src="Picure/icon/youtube.svg" height="25px" width="25px" alt="not found"></a>
+            <a href=""><img src="Picure/icon/linkedin-in.svg" height="25px" width="25px" alt="not found"></a>
+        </div>
+    </footer>
+</body>
+<script>
+var sliderImages = document.querySelectorAll('.slider-img');
+var currentImageIndex = 0;
+
+function changeSlide(n) {
+    currentImageIndex += n;
+
+    if (currentImageIndex < 0) {
+        currentImageIndex = sliderImages.length - 1;
+    } else if (currentImageIndex >= sliderImages.length) {
+        currentImageIndex = 0;
+    }
+
+    for (var i = 0; i < sliderImages.length; i++) {
+        sliderImages[i].style.display = 'none';
+    }
+
+    sliderImages[currentImageIndex].style.display = 'block';
+}
+
+function startSlider() {setInterval(function() {changeSlide(1);}, 1500);
+}
+startSlider();
+
+
+var sliderImages1 = document.querySelectorAll('.slider1-img');
+var currentImageIndex1 = 0;
+
+function changeSlide1(n) {
+    currentImageIndex1 += n;
+
+    if (currentImageIndex1 < 0) {
+        currentImageIndex1 = sliderImages1.length - 1;
+    } else if (currentImageIndex1 >= sliderImages1.length) {
+        currentImageIndex1 = 0;
+    }
+
+    for (var i = 0; i < sliderImages1.length; i++) {
+        sliderImages1[i].style.display = 'none';
+    }
+
+    sliderImages1[currentImageIndex1].style.display = 'block';
+}
+
+function startSlider1() {setInterval(function() {changeSlide1(1);}, 1500);
+}
+startSlider1();
+
+
+var sliderImages2 = document.querySelectorAll('.slider2-img');
+var currentImageIndex2 = 0;
+
+function changeSlide2(n) {
+    currentImageIndex2 += n;
+
+    if (currentImageIndex2 < 0) {
+        currentImageIndex2 = sliderImages2.length - 1;
+    } else if (currentImageIndex2 >= sliderImages2.length) {
+        currentImageIndex2 = 0;
+    }
+
+    for (var i = 0; i < sliderImages2.length; i++) {
+        sliderImages2[i].style.display = 'none';
+    }
+
+    sliderImages2[currentImageIndex2].style.display = 'block';
+}
+
+function startSlider2() {setInterval(function() {changeSlide2(1);}, 1500);
+}
+startSlider2();
+
+</script>
+</html>
