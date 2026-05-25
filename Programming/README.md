@@ -1,12 +1,7 @@
 
 # 🧮 Multiplication Game
 
-[English](#english) | [العربية](#arabic)
-
 ---
-
-<a id="english"></a>
-## 🌍 English
 
 ### 📖 Description
 A simple and interactive C++ console game to test multiplication skills. It generates random questions, gives the user 3 attempts per round, and includes input validation to handle accidental character entries (like `w` or `r`) without crashing.
